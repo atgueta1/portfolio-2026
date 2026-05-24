@@ -17,10 +17,9 @@ export function Hero() {
         id="home"
         className="relative min-h-[100dvh] overflow-hidden pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32"
       >
-        <div className="pointer-events-none absolute inset-0">
+        <div className="pointer-events-none absolute inset-0 opacity-60">
           <div className="absolute -left-32 top-20 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
-          <div className="absolute right-0 top-1/3 h-80 w-80 rounded-full bg-zinc-700/20 blur-3xl" />
-          <div className="absolute bottom-0 left-1/2 h-px w-full max-w-4xl -translate-x-1/2 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+          <div className="absolute right-0 top-1/3 h-80 w-80 rounded-full bg-zinc-700/15 blur-3xl" />
         </div>
 
         <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-4 sm:gap-14 sm:px-6 lg:grid-cols-2 lg:gap-10 lg:px-8">

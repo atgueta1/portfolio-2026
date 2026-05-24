@@ -25,7 +25,7 @@ export const site = {
     {
       title: "Website Development",
       description:
-        "Responsive, performant sites with Laravel APIs and modern frontends — Next.js, React, and Tailwind.",
+        "Responsive, performant sites with Laravel APIs and modern frontends — Next.js, React",
     },
     {
       title: "Full-Stack Applications",

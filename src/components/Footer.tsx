@@ -1,11 +1,17 @@
+import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 import { site } from "@/data/site";
-import { Code2, Link2, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
-const social = [
-  { href: site.social.email, icon: Mail, label: "Email" },
-  { href: site.social.github, icon: Code2, label: "GitHub" },
-  { href: site.social.linkedin, icon: Link2, label: "LinkedIn" },
+const social: {
+  href: string;
+  label: string;
+  icon: ReactNode;
+}[] = [
+  { href: site.social.email, label: "Email", icon: <Mail size={18} /> },
+  { href: site.social.github, label: "GitHub", icon: <GithubIcon /> },
+  { href: site.social.linkedin, label: "LinkedIn", icon: <LinkedinIcon /> },
 ];
 
 export function Footer() {
@@ -19,8 +25,12 @@ export function Footer() {
           Designed with care — all rights reserved for {site.name}.
         </p>
 
-        <div className="mt-8 flex justify-center gap-4">
-          {social.map(({ href, icon: Icon, label }) => (
+        <p className="mt-8 text-sm text-zinc-400">
+          Check out my socials below:
+        </p>
+
+        <div className="mt-4 flex justify-center gap-4">
+          {social.map(({ href, icon, label }) => (
             <Link
               key={label}
               href={href}
@@ -29,7 +39,7 @@ export function Footer() {
               aria-label={label}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-700 text-zinc-300 transition hover:border-gold hover:text-gold"
             >
-              <Icon size={18} />
+              {icon}
             </Link>
           ))}
         </div>

@@ -90,7 +90,7 @@ export const certifications: Certification[] = [
     id: "laravel",
     issuer: "Laravel",
     name: "Laravel Fullstack Developer Diploma Certificate (Advanced)",
-    url: "https://www.linkedin.com/in/andrei-paulo-gueta-36bb56236/overlay/Certifications/323856477/treasury/?profileId=ACoAADrnI4MBsMvvEbksNerUxASf07hocOkuncc",
+    url: "https://www.linkedin.com/in/andrei-paulo-gueta-36bb56236/details/certifications/",
   },
   {
     id: "monday",
