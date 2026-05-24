@@ -16,25 +16,25 @@ function openGmailCompose(name: string, email: string, message: string) {
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 lg:py-32">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+    <section id="contact" className="py-16 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <div className="grid gap-16 lg:grid-cols-2">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <SectionHeading label="Contact" title="Contacts" />
-              <h3 className="mt-8 font-display text-4xl font-semibold leading-tight text-white sm:text-5xl">
+              <h3 className="mt-6 font-display text-3xl font-semibold leading-tight text-white sm:mt-8 sm:text-4xl lg:text-5xl">
                 Have a project?
                 <br />
                 Let&apos;s talk!
               </h3>
-              <p className="mt-6 max-w-md text-zinc-400">
+              <p className="mt-4 text-sm text-zinc-400 sm:mt-6 sm:text-base">
                 I&apos;m open to freelance work and full-time opportunities. Send a
                 message and I&apos;ll get back to you as soon as possible.
               </p>
             </div>
 
             <form
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
               onSubmit={(e) => {
                 e.preventDefault();
                 const form = e.currentTarget;
@@ -49,7 +49,7 @@ export function Contact() {
                 <div key={field}>
                   <label
                     htmlFor={field}
-                    className="mb-3 block text-sm capitalize text-zinc-300"
+                    className="mb-2 block text-sm capitalize text-zinc-300 sm:mb-3"
                   >
                     {field}
                   </label>
@@ -58,12 +58,15 @@ export function Contact() {
                     name={field}
                     type={field === "email" ? "email" : "text"}
                     required
-                    className="w-full border-b border-zinc-600 bg-transparent py-2 text-white outline-none transition focus:border-gold"
+                    className="w-full border-b border-zinc-600 bg-transparent py-2.5 text-base text-white outline-none transition focus:border-gold"
                   />
                 </div>
               ))}
               <div>
-                <label htmlFor="message" className="mb-3 block text-sm text-zinc-300">
+                <label
+                  htmlFor="message"
+                  className="mb-2 block text-sm text-zinc-300 sm:mb-3"
+                >
                   Message
                 </label>
                 <textarea
@@ -71,12 +74,12 @@ export function Contact() {
                   name="message"
                   rows={4}
                   required
-                  className="w-full resize-none border-b border-zinc-600 bg-transparent py-2 text-white outline-none transition focus:border-gold"
+                  className="w-full resize-none border-b border-zinc-600 bg-transparent py-2.5 text-base text-white outline-none transition focus:border-gold"
                 />
               </div>
               <button
                 type="submit"
-                className="rounded-lg bg-gold px-8 py-3 text-sm font-semibold text-black transition hover:bg-gold-light"
+                className="w-full rounded-lg bg-gold px-8 py-3.5 text-sm font-semibold text-black transition hover:bg-gold-light sm:w-auto"
               >
                 Submit
               </button>

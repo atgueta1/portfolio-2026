@@ -10,10 +10,12 @@ const social = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/5 py-16">
-      <div className="mx-auto max-w-6xl px-6 text-center lg:px-8">
-        <p className="font-display text-xl font-semibold text-white">{site.name}</p>
-        <p className="mt-3 text-sm text-zinc-500">
+    <footer className="border-t border-white/5 py-12 sm:py-16">
+      <div className="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
+        <p className="font-display text-lg font-semibold text-white sm:text-xl">
+          {site.name}
+        </p>
+        <p className="mt-3 px-2 text-xs text-zinc-500 sm:text-sm">
           Designed with care — all rights reserved for {site.name}.
         </p>
 

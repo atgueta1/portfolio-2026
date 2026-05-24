@@ -24,23 +24,31 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-white/5 bg-background/90 backdrop-blur-xl"
+        scrolled || open
+          ? "border-b border-white/5 bg-background/95 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-8">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
         <Link
           href="#home"
-          className="font-display text-lg font-semibold tracking-wide text-white"
+          className="font-display text-base font-semibold tracking-wide text-white sm:text-lg"
+          onClick={() => setOpen(false)}
         >
           {site.shortName}
         </Link>
 
-        <ul className="hidden items-center gap-10 md:flex">
+        <ul className="hidden items-center gap-6 lg:gap-10 md:flex">
           {links.map((link) => (
             <li key={link.href}>
               <Link
@@ -56,7 +64,8 @@ export function Navbar() {
         <button
           type="button"
           aria-label={open ? "Close menu" : "Open menu"}
-          className="text-zinc-300 md:hidden"
+          aria-expanded={open}
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-zinc-300 md:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -64,13 +73,13 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-white/5 bg-background px-6 py-6 md:hidden">
-          <ul className="flex flex-col gap-4">
+        <div className="border-t border-white/5 bg-background px-4 py-4 pb-6 md:hidden">
+          <ul className="flex flex-col gap-1">
             {links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-lg text-zinc-300"
+                  className="block rounded-lg px-3 py-3 text-base text-zinc-200 transition hover:bg-white/5 hover:text-gold"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}

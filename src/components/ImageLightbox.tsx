@@ -61,14 +61,14 @@ export function ImageLightbox({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-8"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-2 sm:bg-black/90 sm:p-4 lg:p-8"
           onClick={onClose}
         >
           <button
             type="button"
             aria-label="Close"
             onClick={onClose}
-            className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+            className="absolute right-2 top-2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 sm:right-4 sm:top-4 sm:h-11 sm:w-11"
           >
             <X size={22} />
           </button>
@@ -82,9 +82,9 @@ export function ImageLightbox({
                   e.stopPropagation();
                   go(-1);
                 }}
-                className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-gold hover:text-black sm:left-8"
+                className="absolute left-1 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-gold hover:text-black sm:left-4 sm:h-12 sm:w-12 lg:left-8"
               >
-                <ChevronLeft size={24} />
+                <ChevronLeft size={22} />
               </button>
               <button
                 type="button"
@@ -93,9 +93,9 @@ export function ImageLightbox({
                   e.stopPropagation();
                   go(1);
                 }}
-                className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-gold hover:text-black sm:right-8"
+                className="absolute right-1 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-gold hover:text-black sm:right-4 sm:h-12 sm:w-12 lg:right-8"
               >
-                <ChevronRight size={24} />
+                <ChevronRight size={22} />
               </button>
             </>
           )}
@@ -106,10 +106,10 @@ export function ImageLightbox({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.96 }}
             transition={{ duration: 0.25 }}
-            className="relative max-h-[90vh] w-full max-w-6xl"
+            className="flex max-h-[92dvh] w-full max-w-6xl flex-col px-8 sm:px-12"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg bg-zinc-900">
+            <div className="relative min-h-[200px] flex-1 overflow-hidden rounded-lg bg-zinc-900 sm:aspect-[16/10]">
               <Image
                 src={images[index].src}
                 alt={images[index].alt}
@@ -119,10 +119,10 @@ export function ImageLightbox({
                 priority
               />
             </div>
-            <p className="mt-4 text-center text-sm text-zinc-400">
-              {images[index].alt}
+            <p className="mt-2 shrink-0 px-1 text-center text-xs text-zinc-400 sm:mt-4 sm:text-sm">
+              <span className="line-clamp-2">{images[index].alt}</span>
               {total > 1 && (
-                <span className="ml-2 text-zinc-500">
+                <span className="ml-1 text-zinc-500">
                   ({index + 1} / {total})
                 </span>
               )}
