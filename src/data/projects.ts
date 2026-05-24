@@ -17,7 +17,7 @@ export const projects: Project[] = [
     title: "Cleanline Tasman Website",
     description:
       "A full-featured corporate website for New Zealand's leading uniform and PPE partner. Built with Laravel 11 on the backend and Next.js on the frontend — including product catalogues, industry solutions, discovery booking flows, and a polished brand experience.",
-    tags: ["Laravel 11", "Next.js", "React", "TypeScript", "Tailwind CSS"],
+    tags: ["Laravel 11", "ERP Integration", "Azure Storage", "E-commerce", "Next.js"],
     images: [
       { src: images.cleanlineWebsite.hero, alt: "Cleanline Tasman homepage hero" },
       { src: images.cleanlineWebsite.products, alt: "Products section" },
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     title: "Cleanline Tasman PWA",
     description:
       "An Angular progressive web app and Laravel API that gives corporate customers a mobile-first portal to manage employee uniform allocations, place and approve workwear orders, run on-site store stock (issue, replenish, and receipt), and stay in sync with the company ERP.",
-    tags: ["Laravel 11", "Angular 18", "PWA", "ERP Integration", "TypeScript"],
+    tags: ["Laravel 11", "Angular 18", "ERP Integration", "TypeScript"],
     images: [
       { src: images.cleanlinePwa[0], alt: "Cleanline Tasman PWA" },
       { src: images.cleanlinePwa[1], alt: "PWA dashboard" },
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     title: "Washwell.ph",
     description:
       "A modern laundry service website for the Philippine market — featuring subscription plans, service highlights, and a booking-focused user journey with a clean, approachable brand feel.",
-    tags: ["Webflow", "UI/UX", "E-commerce", "Subscription"],
+    tags: ["React", "UI/UX", "E-commerce"],
     images: [
       { src: images.washwell.hero, alt: "Washwell.ph homepage" },
       { src: images.washwell.pricing, alt: "Pricing plans" },
