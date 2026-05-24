@@ -44,8 +44,8 @@ export const site = {
     "Next.js",
     "React",
     "TypeScript",
-    "Node.js",
-    "Tailwind CSS",
+    "JavaScript",
+    "HubSpot",
     "Git",
   ],
   about: `I'm a software developer passionate about crafting digital products that feel effortless to use. My main stack is Laravel — building robust APIs, authentication, and business logic — paired with Next.js and React for fast, accessible frontends.
