@@ -23,6 +23,9 @@
 # misc
 .DS_Store
 *.pem
+*:Zone.Identifier
+public/projects/
+public/resume.pdf
 
 # debug
 npm-debug.log*
