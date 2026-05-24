@@ -23,9 +23,9 @@ export function Hero() {
           <div className="absolute bottom-0 left-1/2 h-px w-full max-w-4xl -translate-x-1/2 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
         </div>
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 sm:gap-14 sm:px-6 lg:grid-cols-2 lg:gap-10 lg:px-8">
+        <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-4 sm:gap-14 sm:px-6 lg:grid-cols-2 lg:gap-10 lg:px-8">
           <motion.div
-            className="order-2 text-center lg:order-1 lg:text-left"
+            className="relative z-20 order-2 text-center lg:order-1 lg:text-left"
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -44,24 +44,24 @@ export function Hero() {
               {site.tagline}
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
+            <div className="relative z-20 mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
               <Link
                 href="#contact"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-black transition hover:bg-gold-light sm:w-auto sm:px-7"
+                className="relative z-20 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-black transition hover:bg-gold-light sm:w-auto sm:px-7"
               >
                 Got a project?
                 <ArrowUpRight size={16} />
               </Link>
               <Link
                 href="#projects"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-zinc-600 px-6 py-3.5 text-sm font-medium text-zinc-200 transition hover:border-gold hover:text-gold sm:w-auto sm:px-7"
+                className="relative z-20 inline-flex w-full items-center justify-center gap-2 rounded-full border border-zinc-600 px-6 py-3.5 text-sm font-medium text-zinc-200 transition hover:border-gold hover:text-gold sm:w-auto sm:px-7"
               >
                 View my work
               </Link>
               <button
                 type="button"
                 onClick={() => setResumeOpen(true)}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-zinc-600 px-6 py-3.5 text-sm font-medium text-zinc-200 transition hover:border-gold hover:text-gold sm:w-auto sm:px-7"
+                className="relative z-20 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-zinc-600 px-6 py-3.5 text-sm font-medium text-zinc-200 transition hover:border-gold hover:text-gold sm:w-auto sm:px-7"
               >
                 <FileText size={16} />
                 My Resume
@@ -70,29 +70,31 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            className="order-1 mx-auto w-full max-w-[260px] sm:max-w-xs lg:order-2 lg:max-w-none lg:justify-self-end"
+            className="relative order-1 mx-auto w-full max-w-[260px] sm:max-w-xs lg:order-2 lg:max-w-none lg:justify-self-end"
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="absolute inset-0 m-auto aspect-square w-[88%] rounded-full border border-gold/20" />
-            <div className="absolute inset-0 m-auto aspect-square w-[96%] rounded-full bg-gold/10 blur-2xl" />
+            <div className="pointer-events-none relative mx-auto w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px]">
+              <div className="absolute inset-0 m-auto aspect-square w-[88%] rounded-full border border-gold/20" />
+              <div className="absolute inset-0 m-auto aspect-square w-[96%] rounded-full bg-gold/10 blur-2xl" />
 
-            <div className="relative mx-auto aspect-square w-full max-w-[320px] overflow-hidden rounded-full border-2 border-gold/40 bg-zinc-800 shadow-[0_0_60px_-12px_rgba(201,162,39,0.35)] sm:max-w-[380px] lg:max-w-[420px]">
-              <Image
-                src="/profile.png"
-                alt={site.name}
-                fill
-                className="scale-[1.2] object-cover object-[center_22%]"
-                priority
-                sizes="(max-width: 640px) 260px, (max-width: 1024px) 380px, 420px"
-              />
+              <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-full border-2 border-gold/40 bg-zinc-800 shadow-[0_0_60px_-12px_rgba(201,162,39,0.35)]">
+                <Image
+                  src="/profile.png"
+                  alt={site.name}
+                  fill
+                  className="scale-[1.2] object-cover object-[center_22%]"
+                  priority
+                  sizes="(max-width: 640px) 260px, (max-width: 1024px) 380px, 420px"
+                />
+              </div>
             </div>
 
-            <span className="absolute -right-2 top-1/4 hidden font-mono text-4xl text-zinc-700 lg:block">
+            <span className="pointer-events-none absolute -right-2 top-1/4 hidden font-mono text-4xl text-zinc-700 lg:block">
               &gt;
             </span>
-            <span className="absolute -left-4 bottom-1/4 hidden font-mono text-3xl text-zinc-700 lg:block">
+            <span className="pointer-events-none absolute -left-4 bottom-1/4 hidden font-mono text-3xl text-zinc-700 lg:block">
               &gt;
             </span>
           </motion.div>

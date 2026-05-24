@@ -80,7 +80,7 @@ export const projects: Project[] = [
     title: "CYPHER Learning Marketplace",
     description:
       "Contributed to the CYPHER Learning marketplace experience — a filterable app directory showcasing integrations and learning tools with a structured grid layout and category-based discovery.",
-    tags: ["React", "UI Engineering", "Marketplace", "EdTech"],
+    tags: ["HubSpot", "UI Engineering", "Marketplace"],
     images: [
       {
         src: images.cypher,

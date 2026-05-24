@@ -19,15 +19,16 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-cormorant);
-  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee: marquee 40s linear infinite;
 }
 
 @keyframes marquee {
-  0% {
-    transform: translate3d(0, 0, 0);
+  from {
+    transform: translateX(0);
   }
-  100% {
-    transform: translate3d(-50%, 0, 0);
+  to {
+    /* 4 identical copies in one row — move one quarter for seamless loop */
+    transform: translateX(-25%);
   }
 }
 

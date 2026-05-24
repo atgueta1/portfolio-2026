@@ -1,31 +1,28 @@
 import { site } from "@/data/site";
 
-function TechTrack({ id, hidden }: { id: string; hidden?: boolean }) {
-  return (
-    <ul
-      className="flex shrink-0 list-none items-center gap-10 pr-10 sm:gap-16 sm:pr-16"
-      aria-hidden={hidden || undefined}
-    >
-      {site.techStack.map((tech) => (
-        <li
-          key={`${id}-${tech}`}
-          className="text-xs font-medium uppercase tracking-[0.15em] text-zinc-500 sm:text-sm sm:tracking-[0.2em]"
-        >
-          {tech}
-        </li>
-      ))}
-    </ul>
-  );
-}
+const COPIES = 4;
+const MARQUEE_ITEMS = Array.from({ length: COPIES }, () => site.techStack).flat();
 
 export function TechStack() {
   return (
     <section className="border-y border-white/5 bg-surface py-5">
       <div className="overflow-hidden">
-        <div className="flex w-max animate-marquee">
-          <TechTrack id="a" />
-          <TechTrack id="b" hidden />
-        </div>
+        <ul
+          className="flex w-max list-none"
+          style={{
+            animation: "marquee 35s linear infinite",
+          }}
+        >
+          {MARQUEE_ITEMS.map((tech, index) => (
+            <li
+              key={`${tech}-${index}`}
+              className="shrink-0 whitespace-nowrap px-8 text-xs font-medium uppercase tracking-[0.15em] text-zinc-500 sm:px-12 sm:text-sm sm:tracking-[0.2em]"
+              aria-hidden={index >= site.techStack.length ? true : undefined}
+            >
+              {tech}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
