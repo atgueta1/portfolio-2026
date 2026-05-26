@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { FadeIn } from "./FadeIn";
 import { ProjectGallery } from "./ProjectGallery";
+import { ProjectLinks } from "./ProjectLinks";
 import { SectionHeading } from "./SectionHeading";
 
 export function Projects() {
@@ -76,17 +77,7 @@ export function Projects() {
                       {project.description}
                     </p>
 
-                    {project.liveUrl && (
-                      <Link
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-gold underline-offset-4 transition hover:underline sm:mt-8"
-                      >
-                        Visit live site
-                        <ArrowUpRight size={14} />
-                      </Link>
-                    )}
+                    <ProjectLinks project={project} />
                   </div>
                 </article>
               </FadeIn>

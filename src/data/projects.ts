@@ -1,4 +1,16 @@
+import { cleanlineWebsiteDemo } from "@/data/cleanlineDemo";
 import { images } from "@/lib/images";
+
+export type DemoChapter = {
+  time: string;
+  label: string;
+};
+
+export type ProjectDemo = {
+  videoId: string;
+  title: string;
+  chapters: DemoChapter[];
+};
 
 export type Project = {
   id: string;
@@ -8,6 +20,7 @@ export type Project = {
   images: { src: string; alt: string }[];
   githubUrl?: string;
   liveUrl?: string;
+  demo?: ProjectDemo;
   featured?: boolean;
 };
 
@@ -26,6 +39,7 @@ export const projects: Project[] = [
       { src: images.cleanlineWebsite.contact, alt: "Contact page" },
     ],
     liveUrl: "https://website2026.cleanlinetasman.co.nz/",
+    demo: cleanlineWebsiteDemo,
     featured: true,
   },
   {

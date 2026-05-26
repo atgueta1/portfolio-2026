@@ -1,0 +1,46 @@
+import type { ProjectDemo } from "@/data/projects";
+
+export const cleanlineWebsiteDemo: ProjectDemo = {
+  videoId: "SygrW41REK0",
+  title: "Cleanline Tasman Website — Full functionality demo",
+  chapters: [
+    { time: "0:00", label: "Introduction" },
+    { time: "1:32", label: "CMS demo" },
+    { time: "9:10", label: "Article Editor demo (PWA)" },
+    { time: "10:42", label: "Data Flow Architecture Showcase" },
+    { time: "13:22", label: "FAQs Demo" },
+    { time: "14:55", label: "CMS Global Settings Demo" },
+    { time: "17:22", label: "Article Editor demo (WEB)" },
+    { time: "18:29", label: "SSO Login Demo" },
+    { time: "19:24", label: "Account Creation (Business) Demo" },
+    { time: "29:18", label: "Account Creation (Personal) Demo" },
+    { time: "34:08", label: "Employee Creation Demo" },
+    { time: "34:50", label: "Update Employee Demo" },
+    { time: "35:21", label: "Employee Deactivation Demo" },
+    { time: "36:05", label: "Forgot Password Demo" },
+    {
+      time: "36:58",
+      label: "Delivery Address & Delivery Contact Creation Demo",
+    },
+    {
+      time: "38:52",
+      label: "Update Delivery Address & Delivery Contact Demo",
+    },
+    {
+      time: "39:13",
+      label: "Delivery Address & Delivery Contact Deactivation Demo",
+    },
+    { time: "39:29", label: "Product Favourites Creation Demo" },
+    { time: "42:09", label: "Order Checkout Demo" },
+    { time: "44:22", label: "Order History Demo" },
+    { time: "44:28", label: "Product Favourites Deletion Demo" },
+    { time: "44:41", label: "Billing History Demo" },
+    { time: "45:18", label: "Product Favourites Export Demo" },
+    { time: "45:43", label: "ERP Down Scenario Demo" },
+    {
+      time: "51:12",
+      label:
+        "ERP Deletion Sync Code Walkthrough (cannot demo, does not have access)",
+    },
+  ],
+};
