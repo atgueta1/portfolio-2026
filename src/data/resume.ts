@@ -1,6 +1,7 @@
 export type ProjectLine = {
   name: string;
   tech: string;
+  href?: string;
 };
 
 export type Experience = {
@@ -18,7 +19,11 @@ export type Education = {
   period: string;
   degree: string;
   gpa: string;
-  highlights: string[];
+  gpaNote?: string;
+  highlights: {
+    text: string;
+    href?: string;
+  }[];
 };
 
 export type Certification = {
@@ -62,7 +67,7 @@ export const experience: Experience[] = [
   },
   {
     id: "fujitsu",
-    title: "IT Staff",
+    title: "IT Staff (Web Developer)",
     company: "Fujitsu Die-Tech Corporation of the Philippines",
     period: "November 2022 – April 2023",
     projects: [
@@ -79,9 +84,16 @@ export const education: Education = {
   period: "2018 – 2022",
   degree: "Bachelor of Science in Computer Science",
   gpa: "1.81",
+  gpaNote: "1 is highest, 5 is lowest",
   highlights: [
-    'Undergrad Thesis: "A 3D CCC Virtual Tour using Binary Decision Tree Algorithm" (Unity)',
-    'Undergrad OJT: "Research Archiving System of City College of Calamba" (PHP, JavaScript)',
+    {
+      text: 'Undergrad Thesis: "CCC Tour Guide: A 3D Virtual Reality Desktop Application for Visualizing and Interacting with Virtual Elements with Binary Decision Tree Algorithm" (Unity)',
+      href: "#ccc-tour-guide",
+    },
+    {
+      text: 'Undergrad OJT: "Research Archiving System of City College of Calamba" (PHP, JavaScript)',
+      href: "#research-archiving-system",
+    },
   ],
 };
 
@@ -90,13 +102,13 @@ export const certifications: Certification[] = [
     id: "laravel",
     issuer: "Laravel",
     name: "Laravel Fullstack Developer Diploma Certificate (Advanced)",
-    url: "https://www.linkedin.com/in/andrei-paulo-gueta-36bb56236/details/certifications/",
+    url: "https://www.linkedin.com/in/andrei-paulo-gueta-36bb56236/overlay/Certifications/323856477/treasury/?profileId=ACoAADrnI4MBsMvvEbksNerUxASf07hocOkuncc",
   },
   {
     id: "monday",
     issuer: "Monday.com",
     name: "Monday Developer Badge Certification",
     year: "2024",
-    url: "https://www.linkedin.com/in/andrei-paulo-gueta-36bb56236/details/certifications/",
+    url: "https://monday.lessonly.com/certificate/30741745",
   },
 ];

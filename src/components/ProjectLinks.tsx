@@ -5,15 +5,22 @@ import { ArrowUpRight, Play } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { ProjectDemoViewer } from "./ProjectDemoViewer";
-
 type ProjectLinksProps = {
   project: Project;
+  onDocumentOpenChange?: (open: boolean) => void;
 };
 
-export function ProjectLinks({ project }: ProjectLinksProps) {
+export function ProjectLinks({
+  project,
+  onDocumentOpenChange,
+}: ProjectLinksProps) {
   const [demoOpen, setDemoOpen] = useState(false);
 
-  if (!project.liveUrl && !project.demo) return null;
+  const openDocument = () => {
+    onDocumentOpenChange?.(true);
+  };
+
+  if (!project.liveUrl && !project.demo && !project.documentUrl) return null;
 
   return (
     <>
@@ -37,6 +44,16 @@ export function ProjectLinks({ project }: ProjectLinksProps) {
           >
             <Play size={14} className="shrink-0" />
             Full functionality demo
+          </button>
+        )}
+        {project.documentUrl && (
+          <button
+            type="button"
+            onClick={openDocument}
+            className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-zinc-300 underline-offset-4 transition hover:text-gold hover:underline"
+          >
+            {project.documentLabel ?? "View document"}
+            <ArrowUpRight size={14} />
           </button>
         )}
       </div>

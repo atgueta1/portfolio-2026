@@ -21,11 +21,16 @@ export function ProjectDemoViewer({
   const listRef = useRef<HTMLUListElement>(null);
   const activeRef = useRef<HTMLButtonElement>(null);
 
+  const handleClose = useCallback(() => {
+    setStartAt(0);
+    onClose();
+  }, [onClose]);
+
   useEffect(() => {
     if (!open) return;
 
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") handleClose();
     };
 
     document.body.style.overflow = "hidden";
@@ -34,11 +39,7 @@ export function ProjectDemoViewer({
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
     };
-  }, [open, onClose]);
-
-  useEffect(() => {
-    if (open) setStartAt(0);
-  }, [open]);
+  }, [handleClose, open]);
 
   useEffect(() => {
     if (!open) return;
@@ -60,7 +61,7 @@ export function ProjectDemoViewer({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[100] flex items-end justify-center bg-black/90 p-0 sm:items-center sm:p-3 md:p-4 lg:p-6"
-          onClick={onClose}
+          onClick={handleClose}
         >
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -76,7 +77,7 @@ export function ProjectDemoViewer({
               </p>
               <button
                 type="button"
-                onClick={onClose}
+                onClick={handleClose}
                 aria-label="Close demo"
                 className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 text-zinc-300 transition hover:border-gold hover:text-gold sm:h-10 sm:w-10"
               >

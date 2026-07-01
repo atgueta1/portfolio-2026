@@ -17,9 +17,15 @@ export type Project = {
   title: string;
   description: string;
   tags: string[];
-  images: { src: string; alt: string }[];
+  images: {
+    src: string;
+    alt: string;
+    type?: "image" | "pdf";
+  }[];
   githubUrl?: string;
   liveUrl?: string;
+  documentUrl?: string;
+  documentLabel?: string;
   demo?: ProjectDemo;
   featured?: boolean;
 };
@@ -60,7 +66,7 @@ export const projects: Project[] = [
     id: "cleanline-pwa",
     title: "Cleanline Tasman PWA",
     description:
-      "An Angular progressive web app and Laravel API that gives corporate customers a mobile-first portal to manage employee uniform allocations, place and approve workwear orders, run on-site store stock (issue, replenish, and receipt), and stay in sync with the company ERP.",
+      "Contributed to an Angular progressive web app and Laravel API that gives corporate customers a portal to manage employee uniform allocations, place and approve workwear orders, run on-site store stock (issue, replenish, and receipt), and stay in sync with the company ERP.",
     tags: ["Laravel 11", "Angular 18", "ERP Integration", "TypeScript"],
     images: [
       { src: images.cleanlinePwa[0], alt: "Cleanline Tasman PWA" },
@@ -72,21 +78,6 @@ export const projects: Project[] = [
       { src: images.cleanlinePwa[6], alt: "ERP sync" },
     ],
     liveUrl: "https://cleanline-tasman-pwa-web-prod.azurewebsites.net/login",
-    featured: true,
-  },
-  {
-    id: "washwell",
-    title: "Washwell.ph",
-    description:
-      "A modern laundry service website for the Philippine market — featuring subscription plans, service highlights, and a booking-focused user journey with a clean, approachable brand feel.",
-    tags: ["React", "UI/UX", "E-commerce"],
-    images: [
-      { src: images.washwell.hero, alt: "Washwell.ph homepage" },
-      { src: images.washwell.pricing, alt: "Pricing plans" },
-      { src: images.washwell.services, alt: "Services section" },
-      { src: images.washwell.contact, alt: "Contact page" },
-    ],
-    liveUrl: "https://www.washwell.ph/",
     featured: true,
   },
   {
@@ -102,6 +93,60 @@ export const projects: Project[] = [
       },
     ],
     liveUrl: "https://www.cypherlearning.com/marketplace",
+    featured: true,
+  },
+  {
+    id: "washwell",
+    title: "Washwell.ph",
+    description:
+      "Contributed to Washwell.ph — a modern laundry service website for the Philippine market featuring subscription plans, service highlights, and a booking-focused user journey with a clean, approachable brand feel.",
+    tags: ["React", "UI/UX", "E-commerce"],
+    images: [
+      { src: images.washwell.hero, alt: "Washwell.ph homepage" },
+      { src: images.washwell.pricing, alt: "Pricing plans" },
+      { src: images.washwell.services, alt: "Services section" },
+      { src: images.washwell.contact, alt: "Contact page" },
+    ],
+    liveUrl: "https://www.washwell.ph/",
+    featured: true,
+  },
+  {
+    id: "guerilla360-website",
+    title: "Guerilla 360 Website",
+    description:
+      "Minor enhancements to the Guerilla 360 Integrated Solutions company website — UI refinements and front-end improvements to strengthen the brand presentation.",
+    tags: ["React","Web Development", "UI Enhancement"],
+    images: [
+      { src: images.g360[0], alt: "Guerilla 360 website homepage" },
+      { src: images.g360[1], alt: "Guerilla 360 website section" },
+      { src: images.g360[2], alt: "Guerilla 360 website content" },
+      { src: images.g360[3], alt: "Guerilla 360 website layout" },
+    ],
+    featured: true,
+  },
+  {
+    id: "research-archiving-system",
+    title: "Research Archiving System of City College of Calamba",
+    description:
+      "A basic research archiving system built to organize and systemize research papers for City College of Calamba, making records easier to browse, manage, and preserve.",
+    tags: ["PHP", "Research Archiving", "Web Development"],
+    images: [
+      {
+        src: images.researchArchivingSystem,
+        alt: "Research Archiving System dashboard",
+      },
+    ],
+    featured: true,
+  },
+  {
+    id: "ccc-tour-guide",
+    title: "CCC Tour Guide",
+    description:
+      "A 3D Virtual Reality Desktop Application with Binary Decision Tree Algorithm. This undergraduate thesis project was developed in Unity for exploring the City College of Calamba environment and interacting with guided virtual elements.",
+    tags: ["Unity", "Virtual Reality", "3D", "Binary Decision Tree", "Desktop Application"],
+    images: [],
+    documentUrl: images.cccTourGuide,
+    documentLabel: "View document",
     featured: true,
   },
 ];

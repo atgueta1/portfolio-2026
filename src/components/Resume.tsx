@@ -26,7 +26,16 @@ function ProjectList({
       <ul className="mt-2 space-y-2">
         {items.map((item) => (
           <li key={item.name} className="text-sm leading-relaxed text-zinc-400">
-            <span className="text-zinc-200">{item.name}</span>
+            {item.href ? (
+              <Link
+                href={item.href}
+                className="text-zinc-200 underline-offset-4 transition hover:text-gold hover:underline"
+              >
+                {item.name}
+              </Link>
+            ) : (
+              <span className="text-zinc-200">{item.name}</span>
+            )}
             <span className="text-zinc-500"> — {item.tech}</span>
           </li>
         ))}
@@ -116,6 +125,12 @@ export function Resume() {
                 </div>
                 <p className="mt-3 text-sm text-zinc-400">
                   GPA: <span className="text-zinc-200">{education.gpa}</span>
+                  {education.gpaNote && (
+                    <span className="text-zinc-500">
+                      {" "}
+                      ({education.gpaNote})
+                    </span>
+                  )}
                 </p>
                 <div className="mt-5 sm:mt-6">
                   <p className="text-xs font-medium uppercase tracking-wider text-gold">
@@ -124,10 +139,19 @@ export function Resume() {
                   <ul className="mt-2 space-y-2">
                     {education.highlights.map((item) => (
                       <li
-                        key={item}
+                        key={item.text}
                         className="text-sm leading-relaxed text-zinc-400"
                       >
-                        {item}
+                        {item.href ? (
+                          <Link
+                            href={item.href}
+                            className="underline-offset-4 transition hover:text-gold hover:underline"
+                          >
+                            {item.text}
+                          </Link>
+                        ) : (
+                          item.text
+                        )}
                       </li>
                     ))}
                   </ul>

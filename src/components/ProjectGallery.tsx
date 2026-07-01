@@ -2,19 +2,25 @@
 
 import type { Project } from "@/data/projects";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { ImageLightbox } from "./ImageLightbox";
 
 type ProjectGalleryProps = {
   project: Project;
+  onOpenDocument?: () => void;
 };
 
-export function ProjectGallery({ project }: ProjectGalleryProps) {
+export function ProjectGallery({ project, onOpenDocument }: ProjectGalleryProps) {
   const [index, setIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const hasImages = project.images.length > 0;
+  const imageItems = project.images.filter((image) => image.type !== "pdf");
   const total = project.images.length;
+  const activeItem = hasImages ? project.images[index] : undefined;
+  const isPdf = activeItem?.type === "pdf";
+  const isDocumentCard = !hasImages && Boolean(onOpenDocument);
 
   const go = (direction: -1 | 1) => {
     setIndex((prev) => (prev + direction + total) % total);
@@ -26,45 +32,90 @@ export function ProjectGallery({ project }: ProjectGalleryProps) {
         <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-gold/20 via-transparent to-zinc-700/50 opacity-60 blur-sm transition group-hover:opacity-100" />
         <div className="relative overflow-hidden rounded-xl border border-white/10 bg-zinc-900 shadow-2xl sm:rounded-2xl">
           <div className="relative aspect-[4/3] w-full bg-zinc-800 sm:aspect-[16/10]">
-            <div
-              role="button"
-              tabIndex={0}
-              onClick={() => setLightboxOpen(true)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  setLightboxOpen(true);
-                }
-              }}
-              className="absolute inset-0 cursor-zoom-in touch-manipulation"
-              aria-label="Open fullscreen preview"
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={project.images[index].src}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.35 }}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={project.images[index].src}
-                    alt={project.images[index].alt}
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                </motion.div>
-              </AnimatePresence>
+            {isDocumentCard ? (
+              <button
+                type="button"
+                onClick={onOpenDocument}
+                className="flex h-full w-full cursor-pointer items-center justify-center bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800 p-8 text-center transition hover:bg-zinc-800/80"
+                aria-label={`View ${project.title} document`}
+              >
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold/80">
+                    Thesis document
+                  </p>
+                  <h4 className="mt-3 font-display text-2xl text-white sm:text-3xl">
+                    {project.title}
+                  </h4>
+                  <p className="mx-auto mt-3 inline-flex items-center gap-1.5 text-sm text-zinc-300 transition group-hover:text-gold sm:text-base">
+                    View document
+                    <ArrowUpRight size={14} />
+                  </p>
+                </div>
+              </button>
+            ) : !hasImages ? (
+              <div className="flex h-full items-center justify-center bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800 p-8 text-center">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold/80">
+                    Thesis document
+                  </p>
+                  <h4 className="mt-3 font-display text-2xl text-white sm:text-3xl">
+                    {project.title}
+                  </h4>
+                </div>
+              </div>
+            ) : (
+              <div
+                role="button"
+                tabIndex={isPdf ? -1 : 0}
+                onClick={() => {
+                  if (!isPdf) setLightboxOpen(true);
+                }}
+                onKeyDown={(e) => {
+                  if (!isPdf && (e.key === "Enter" || e.key === " ")) {
+                    e.preventDefault();
+                    setLightboxOpen(true);
+                  }
+                }}
+                className={`absolute inset-0 touch-manipulation ${isPdf ? "" : "cursor-zoom-in"}`}
+                aria-label={isPdf ? activeItem?.alt : "Open fullscreen preview"}
+              >
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeItem?.src}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.35 }}
+                    className="absolute inset-0"
+                  >
+                    {isPdf ? (
+                      <iframe
+                        title={activeItem?.alt}
+                        src={`${activeItem?.src}#view=FitH`}
+                        className="h-full w-full bg-zinc-950"
+                      />
+                    ) : (
+                      <Image
+                        src={activeItem!.src}
+                        alt={activeItem!.alt}
+                        fill
+                        className="object-cover object-top"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                    )}
+                  </motion.div>
+                </AnimatePresence>
 
-              <span className="pointer-events-none absolute bottom-2 right-2 flex items-center gap-1.5 rounded-full bg-black/60 px-2.5 py-1 text-[0.65rem] text-white backdrop-blur sm:bottom-3 sm:right-3 sm:px-3 sm:py-1.5 sm:text-xs md:opacity-0 md:transition md:group-hover:opacity-100">
-                <ZoomIn size={12} className="sm:hidden" />
-                <ZoomIn size={14} className="hidden sm:block" />
-                <span className="hidden sm:inline">Click to enlarge</span>
-                <span className="sm:hidden">Tap to enlarge</span>
-              </span>
-            </div>
+                {!isPdf && (
+                  <span className="pointer-events-none absolute bottom-2 right-2 flex items-center gap-1.5 rounded-full bg-black/60 px-2.5 py-1 text-[0.65rem] text-white backdrop-blur sm:bottom-3 sm:right-3 sm:px-3 sm:py-1.5 sm:text-xs md:opacity-0 md:transition md:group-hover:opacity-100">
+                    <ZoomIn size={12} className="sm:hidden" />
+                    <ZoomIn size={14} className="hidden sm:block" />
+                    <span className="hidden sm:inline">Click to enlarge</span>
+                    <span className="sm:hidden">Tap to enlarge</span>
+                  </span>
+                )}
+              </div>
+            )}
 
             {total > 1 && (
               <>
@@ -106,13 +157,15 @@ export function ProjectGallery({ project }: ProjectGalleryProps) {
         </div>
       </div>
 
-      <ImageLightbox
-        images={project.images}
-        index={index}
-        open={lightboxOpen}
-        onClose={() => setLightboxOpen(false)}
-        onIndexChange={setIndex}
-      />
+      {hasImages && !isPdf && imageItems.length > 0 && (
+        <ImageLightbox
+          images={imageItems}
+          index={index}
+          open={lightboxOpen}
+          onClose={() => setLightboxOpen(false)}
+          onIndexChange={setIndex}
+        />
+      )}
     </>
   );
 }

@@ -5,6 +5,8 @@ export function imageUrl(...segments: string[]): string {
 
 export const images = {
   resume: imageUrl("Resume", "CV-Gueta_Andrei-Paulo-T_2026.pdf"),
+  cccTourGuide: imageUrl("CCCTourGuide", "CCC Tour GuideFINALYARN.pdf"),
+  researchArchivingSystem: imageUrl("RAS", "Dashboard-Desktop.svg"),
 
   cleanlineWebsite: {
     hero: imageUrl(
@@ -56,6 +58,13 @@ export const images = {
     "Screenshot 2026-05-24 192431.png",
     "Screenshot 2026-05-24 192453.png",
   ].map((file) => imageUrl("Cleanline Tasman PWA", file)),
+
+  g360: [
+    "Screenshot 2026-07-01 174327.png",
+    "Screenshot 2026-07-01 174332.png",
+    "Screenshot 2026-07-01 174358.png",
+    "Screenshot 2026-07-01 174404.png",
+  ].map((file) => imageUrl("G360", file)),
 
   washwell: {
     hero: imageUrl("Washwell.ph Website", "Screenshot 2026-05-24 164315.png"),
