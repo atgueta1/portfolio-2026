@@ -100,7 +100,7 @@ export const projects: Project[] = [
     title: "Washwell.ph",
     description:
       "Contributed to Washwell.ph — a modern laundry service website for the Philippine market featuring subscription plans, service highlights, and a booking-focused user journey with a clean, approachable brand feel.",
-    tags: ["React", "UI/UX", "E-commerce"],
+    tags: ["React", "E-commerce"],
     images: [
       { src: images.washwell.hero, alt: "Washwell.ph homepage" },
       { src: images.washwell.pricing, alt: "Pricing plans" },

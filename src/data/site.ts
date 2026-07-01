@@ -1,20 +1,20 @@
 import { images } from "@/lib/images";
 
 export const site = {
-  name: "Andrei Paulo Gueta",
+  name: "Andrei Paulo T. Gueta",
   shortName: "Andrei Paulo T. Gueta",
   role: "Software Developer",
   tagline:
-    "I build polished web experiences — Laravel backends, Next.js frontends, and full-stack platforms.",
+    "I build polished web applications with Laravel, Next.js, and modern full-stack technologies.",
   email: "atgueta1@gmail.com",
   resumeUrl: images.resume,
-  resumeFileName: "CV-Gueta_Andrei-Paulo-T_2026.pdf",
+  resumeFileName: "Gueta_Andrei-Paulo-T-CV.pdf",
   location: "Philippines",
   social: {
     github: "https://github.com/atgueta1",
     linkedin:
       "https://www.linkedin.com/in/andrei-paulo-gueta-36bb56236/",
-    email: "mailto:atgueta1@gmail.com",
+    email: "https://mail.google.com/mail/?view=cm&fs=1&to=atgueta1@gmail.com",
   },
   stats: [
     { value: "5+", label: "Projects delivered" },

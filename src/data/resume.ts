@@ -50,19 +50,24 @@ export const experience: Experience[] = [
         tech: "Laravel, Angular 18, ERP Integration",
       },
       {
-        name: "CYPHER Learning Marketplace Website",
-        tech: "HubSpot",
-      },
-      {
         name: "SEA Integration",
-        tech: "Anypoint Studio Integration",
+        tech: "Mulesoft Anypoint Studio",
       },
     ],
     minorProjects: [
       {
+        name: "CYPHER Learning Marketplace Website",
+        tech: "HubSpot",
+      },
+      {
         name: "Washwell.ph",
         tech: "React",
       },
+      {
+        name: "Guerilla 360 Website",
+        tech: "React",
+      },
+
     ],
   },
   {
@@ -72,8 +77,8 @@ export const experience: Experience[] = [
     period: "November 2022 – April 2023",
     projects: [
       {
-        name: "HINSEI LSA Agreement List System",
-        tech: "Web-based tool for agreement management",
+        name: "Agreement List System",
+        tech: "Vue.js, Laravel",
       },
     ],
   },
