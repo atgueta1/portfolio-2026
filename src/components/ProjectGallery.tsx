@@ -6,6 +6,7 @@ import { ArrowUpRight, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { ImageLightbox } from "./ImageLightbox";
+import { useEffect } from "react";
 
 type ProjectGalleryProps = {
   project: Project;
@@ -15,6 +16,23 @@ type ProjectGalleryProps = {
 export function ProjectGallery({ project, onOpenDocument }: ProjectGalleryProps) {
   const [index, setIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  useEffect(() => {
+    project.images.forEach(async (item) => {
+      if (item.type === "image") {
+        const img = new window.Image();
+        img.src = item.src;
+
+        if (img.decode) {
+          try {
+            await img.decode();
+          } catch {
+            // Ignore decode errors
+          }
+        }
+      }
+    });
+  }, [project.images]);
   const hasImages = project.images.length > 0;
   const imageItems = project.images.filter((image) => image.type !== "pdf");
   const total = project.images.length;
@@ -85,7 +103,7 @@ export function ProjectGallery({ project, onOpenDocument }: ProjectGalleryProps)
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.35 }}
+                    transition={{ duration: 0.1 }}
                     className="absolute inset-0"
                   >
                     {isPdf ? (
@@ -99,6 +117,7 @@ export function ProjectGallery({ project, onOpenDocument }: ProjectGalleryProps)
                         src={activeItem!.src}
                         alt={activeItem!.alt}
                         fill
+                        priority
                         className="object-cover object-top"
                         sizes="(max-width: 1024px) 100vw, 50vw"
                       />
@@ -169,3 +188,4 @@ export function ProjectGallery({ project, onOpenDocument }: ProjectGalleryProps)
     </>
   );
 }
+

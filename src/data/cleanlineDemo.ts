@@ -18,18 +18,9 @@ export const cleanlineWebsiteDemo: ProjectDemo = {
     { time: "34:50", label: "Update Employee Demo" },
     { time: "35:21", label: "Employee Deactivation Demo" },
     { time: "36:05", label: "Forgot Password Demo" },
-    {
-      time: "36:58",
-      label: "Delivery Address & Delivery Contact Creation Demo",
-    },
-    {
-      time: "38:52",
-      label: "Update Delivery Address & Delivery Contact Demo",
-    },
-    {
-      time: "39:13",
-      label: "Delivery Address & Delivery Contact Deactivation Demo",
-    },
+    { time: "36:58", label: "Delivery Address & Delivery Contact Creation Demo"},
+    { time: "38:52", label: "Update Delivery Address & Delivery Contact Demo"},
+    { time: "39:13", label: "Delivery Address & Delivery Contact Deactivation Demo"},
     { time: "39:29", label: "Product Favourites Creation Demo" },
     { time: "42:09", label: "Order Checkout Demo" },
     { time: "44:22", label: "Order History Demo" },
@@ -37,10 +28,6 @@ export const cleanlineWebsiteDemo: ProjectDemo = {
     { time: "44:41", label: "Billing History Demo" },
     { time: "45:18", label: "Product Favourites Export Demo" },
     { time: "45:43", label: "ERP Down Scenario Demo" },
-    {
-      time: "51:12",
-      label:
-        "ERP Deletion Sync Code Walkthrough (cannot demo, does not have access)",
-    },
+    { time: "51:12", label: "ERP Deletion Sync Code Walkthrough (cannot demo, does not have access)"},
   ],
 };

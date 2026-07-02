@@ -5,7 +5,7 @@ export function imageUrl(...segments: string[]): string {
 
 export const images = {
   resume: imageUrl("Resume", "Gueta_Andrei-Paulo-T-CV.pdf"),
-  cccTourGuide: imageUrl("CCCTourGuide", "CCC Tour GuideFINALYARN.pdf"),
+  cccTourGuide: imageUrl("CCCTourGuide", "CCC Tour Guide.pdf"),
   researchArchivingSystem: imageUrl("RAS", "Dashboard-Desktop.svg"),
 
   cleanlineWebsite: {
