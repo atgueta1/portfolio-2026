@@ -39,7 +39,7 @@ export const experience: Experience[] = [
     id: "guerilla-360",
     title: "Junior Software Developer",
     company: "Guerilla 360 Integrated Solutions",
-    period: "April 2023 – Present",
+    period: "April 2023 – July 2026",
     majorProjects: [
       {
         name: "Cleanline Tasman E-Commerce Website",

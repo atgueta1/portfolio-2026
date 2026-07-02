@@ -36,7 +36,7 @@ export const projects: Project[] = [
     title: "Cleanline Tasman Website",
     description:
       "A full-featured corporate website for New Zealand's leading uniform and PPE partner. Built with Laravel 11 on the backend and Next.js on the frontend — including product catalogues, industry solutions, discovery booking flows, and a polished brand experience.",
-    tags: ["Laravel 11", "ERP Integration", "Azure Storage", "E-commerce", "Next.js"],
+    tags: ["Laravel 11", "Next.js","ERP Integration", "E-commerce", ],
     images: [
       { src: images.cleanlineWebsite.hero, alt: "Cleanline Tasman homepage hero" },
       { src: images.cleanlineWebsite.products, alt: "Products section" },
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     title: "Cleanline Tasman CMS",
     description:
       "The same platform as the Cleanline Tasman Website, with a dedicated Superadmin area for managing pages, media, and site content. Access is restricted to Superadmin users — enabling the team to update the site without touching code.",
-    tags: ["Laravel 11", "Next.js", "Superadmin", "CMS", "TypeScript"],
+    tags: ["Laravel 11", "Next.js","CMS","Azure Storage"],
     images: [
       { src: images.cleanlineCms.dashboard, alt: "CMS dashboard overview" },
       { src: images.cleanlineCms.editor, alt: "Content editor interface" },
@@ -66,8 +66,8 @@ export const projects: Project[] = [
     id: "cleanline-pwa",
     title: "Cleanline Tasman PWA",
     description:
-      "Contributed to an Angular progressive web app and Laravel API that gives corporate customers a portal to manage employee uniform allocations, place and approve workwear orders, run on-site store stock (issue, replenish, and receipt), and stay in sync with the company ERP.",
-    tags: ["Laravel 11", "Angular 18", "ERP Integration", "TypeScript"],
+      "An Angular progressive web app and Laravel API that gives corporate customers a portal to manage employee uniform allocations, place and approve workwear orders, run on-site store stock (issue, replenish, and receipt), and stay in sync with the company ERP.",
+    tags: ["Laravel 11", "Angular 18", "ERP Integration", "Azure Storage"],
     images: [
       { src: images.cleanlinePwa[0], alt: "Cleanline Tasman PWA" },
       { src: images.cleanlinePwa[1], alt: "PWA dashboard" },
@@ -84,8 +84,8 @@ export const projects: Project[] = [
     id: "cypher-marketplace",
     title: "CYPHER Learning Marketplace",
     description:
-      "Contributed to the CYPHER Learning marketplace experience — a filterable app directory showcasing integrations and learning tools with a structured grid layout and category-based discovery.",
-    tags: ["HubSpot", "UI Engineering", "Marketplace"],
+      "A filterable app directory showcasing integrations and learning tools with a structured grid layout and category-based discovery.",
+    tags: ["HubSpot", "Marketplace"],
     images: [
       {
         src: images.cypher,
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     id: "washwell",
     title: "Washwell.ph",
     description:
-      "Contributed to Washwell.ph — a modern laundry service website for the Philippine market featuring subscription plans, service highlights, and a booking-focused user journey with a clean, approachable brand feel.",
+      "A modern laundry service website for the Philippine market featuring subscription plans, service highlights, and a booking-focused user journey with a clean, approachable brand feel.",
     tags: ["React", "E-commerce"],
     images: [
       { src: images.washwell.hero, alt: "Washwell.ph homepage" },
@@ -114,8 +114,8 @@ export const projects: Project[] = [
     id: "guerilla360-website",
     title: "Guerilla 360 Website",
     description:
-      "Minor enhancements to the Guerilla 360 Integrated Solutions company website — UI refinements and front-end improvements to strengthen the brand presentation.",
-    tags: ["React","Web Development", "UI Enhancement"],
+      "Corporate website for Guerilla 360 Integrated Solutions, showcasing the company's IT services, solutions, and business offerings with a modern, responsive interface.",
+    tags: ["React"],
     images: [
       { src: images.g360[0], alt: "Guerilla 360 website homepage" },
       { src: images.g360[1], alt: "Guerilla 360 website section" },
@@ -130,7 +130,7 @@ export const projects: Project[] = [
     title: "Research Archiving System of City College of Calamba",
     description:
       "A basic research archiving system built to organize and systemize research papers for City College of Calamba, making records easier to browse, manage, and preserve.",
-    tags: ["PHP", "Research Archiving", "Web Development"],
+    tags: ["PHP"],
     images: [
       {
         src: images.researchArchivingSystem,
@@ -143,8 +143,8 @@ export const projects: Project[] = [
     id: "ccc-tour-guide",
     title: "CCC Tour Guide",
     description:
-      "A 3D Virtual Reality Desktop Application with Binary Decision Tree Algorithm. This undergraduate thesis project was developed in Unity for exploring the City College of Calamba environment and interacting with guided virtual elements.",
-    tags: ["Unity", "Virtual Reality", "3D", "Binary Decision Tree", "Desktop Application"],
+      "A 3D Virtual Reality desktop application developed in Unity as an undergraduate thesis project for the City College of Calamba. The application offers an immersive virtual campus tour where users can explore school facilities, interact with virtual objects and buildings, and access detailed information about departments, offices, academic programs, and campus services.",
+    tags: ["Unity", "C#"],
     images: [],
     documentUrl: images.cccTourGuide,
     documentLabel: "View document",
