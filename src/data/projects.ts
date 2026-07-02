@@ -122,6 +122,7 @@ export const projects: Project[] = [
       { src: images.g360[2], alt: "Guerilla 360 website content" },
       { src: images.g360[3], alt: "Guerilla 360 website layout" },
     ],
+    liveUrl: "https://www.guerilla360.com/",
     featured: true,
   },
   {
